@@ -2,6 +2,7 @@
 
   snapshot --source footballdata|oddsapi [--location PATH_OR_URL]   store one odds snapshot (schedule this)
   forecast --matches data/clean/matches.csv [--w 0.2]                forecasts for upcoming fixtures
+  cloud-import [--log data/live/quotes_log.csv]                      load the always-on snapshot log into the database
   fixtures                                                           list upcoming fixtures and their keys
   quote --key KEY --market 1x2|ou25 --odds H D A | O U [--book sportybet]   type in a price set
   scan [--book sportybet] [--min-edge 0.03] [--bankroll 1000]        list value candidates
@@ -42,6 +43,7 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("snapshot"); s.add_argument("--source", default="footballdata"); s.add_argument("--location")
     f = sub.add_parser("forecast"); f.add_argument("--matches", default="data/clean/matches.csv"); f.add_argument("--w", type=float, default=0.2)
+    ci = sub.add_parser("cloud-import"); ci.add_argument("--log", default="data/live/quotes_log.csv")
     sub.add_parser("fixtures")
     q = sub.add_parser("quote"); q.add_argument("--key", required=True); q.add_argument("--market", required=True); q.add_argument("--odds", nargs="+", type=float, required=True); q.add_argument("--book", default="sportybet")
     c = sub.add_parser("scan"); c.add_argument("--book", default="sportybet"); c.add_argument("--min-edge", type=float, default=0.03); c.add_argument("--bankroll", type=float, default=1000.0); c.add_argument("--w", type=float, default=0.2)
@@ -57,6 +59,9 @@ def main(argv=None):
         print(collector.snapshot(con, src.fetch()))
     elif a.cmd == "forecast":
         print(f"forecasts made for {forecast.run_forecasts(con, pd.read_csv(a.matches), a.w)} fixtures")
+    elif a.cmd == "cloud-import":
+        from . import cloud
+        print(cloud.import_log(con, a.log))
     elif a.cmd == "fixtures":
         for r_ in con.execute("SELECT * FROM fixtures WHERE kickoff>? ORDER BY kickoff", (store.now_utc(),)):
             print(r_["kickoff"], r_["match_key"])

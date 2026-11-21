@@ -1,6 +1,3 @@
-# football_prediction
-a football prediction model, work in progress
-
 # footmodel
 
 Football match prediction model. Phase 0 (data foundation) is done: one loader
@@ -150,6 +147,7 @@ football-model/
 │           ├── scan.py            finds value bets, logs bets
 │           ├── tracker.py         settlement, ROI, CLV, margin
 │           ├── views.py           tables for the app
+│           ├── cloud.py           always-on snapshot collector (standard library only)
 │           └── cli.py             the command line tool
 │
 └── tests/                         automated checks (test_*.py)
@@ -206,6 +204,18 @@ SportyBet prices), **Value bets** (selections that beat the fair price, with sug
 the bet), **My bets** (log, results, settlement), **Monitoring** (ROI interval, CLV, margin, bets needed, and the
 performance dashboard) and **Data** (take an odds snapshot, make forecasts). Settings in the sidebar.
 `src/footmodel/value/views.py` holds the tables, `tests/test_app.py` starts the app headlessly.
+
+## Always-on snapshots (GitHub Actions)
+
+`.github/workflows/snapshot.yml` runs every 30 minutes in GitHub's cloud, so your computer can be off.
+It uses only the Python standard library (no installs) to download the fixtures file and append the odds
+to `data/live/quotes_log.csv` (Pinnacle, Bet365, market average and best price, fixtures in the next 72 hours;
+every run within 3 hours of a kick-off, otherwise at most once every 6 hours). Then, on your computer:
+
+1. Get the latest log (`git pull`, or download the file from GitHub and save it over `data/live/quotes_log.csv`).
+2. App: Data tab > **Import cloud snapshots**. Or: `python -m footmodel.value.cli --db football.db cloud-import`.
+
+Importing is safe to repeat. Forecasts and your SportyBet prices stay on your computer.
 
 ## Clean table at a glance
 

@@ -1,3 +1,4 @@
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import pytest
@@ -111,3 +112,27 @@ def test_backfill_closes_fills_only_stale_or_missing_closes(tmp_path):
     k2 = store.match_key("2099-02-01T15:00:00", "Everton", "Fulham")
     prices, t = store.quote_set(con, k2, "pinnacle", "1x2", "latest", "2099-02-01T15:00:00")
     assert prices["H"] == 2.3 and t == "2099-02-01T14:59:00"
+
+
+def test_cloud_log_round_trip_and_snapshot_rules(tmp_path):
+    from footmodel.value import cloud
+    log = tmp_path / "log.csv"
+    ko = "2026-12-01T15:00:00"
+    q = [Quote(ko, "Arsenal", "Chelsea", b, "1x2", s, o) for b in ("pinnacle", "vcbet") for s, o in zip("HDA", (2.0, 3.5, 3.9))]
+    r = cloud.snapshot_to_log(q, log, now="2026-11-30T10:00:00")           # first ever: written; vcbet not kept
+    assert r["written"] == 3 and len(cloud.read_log(log)) == 3
+    assert cloud.snapshot_to_log(q, log, now="2026-11-30T11:00:00")["written"] == 0      # far from kick-off, recent: skipped
+    assert cloud.snapshot_to_log(q, log, now="2026-12-01T13:00:00")["written"] == 3      # 2 hours before kick-off: written
+    assert cloud.snapshot_to_log(q, log, now="2026-12-05T10:00:00")["written"] == 0      # nothing upcoming
+    con = _db(tmp_path)
+    assert cloud.import_log(con, log) == {"quotes_added": 6}
+    assert cloud.import_log(con, log) == {"quotes_added": 0}                              # repeating adds nothing
+    key = store.match_key(ko, "Arsenal", "Chelsea")
+    prices, t = store.quote_set(con, key, "pinnacle", "1x2", "latest", ko)
+    assert t == "2026-12-01T13:00:00" and prices["H"] == 2.0
+
+
+def test_snapshot_workflow_file_is_valid_yaml():
+    yaml = pytest.importorskip("yaml")
+    wf = yaml.safe_load((Path(__file__).resolve().parents[1] / ".github" / "workflows" / "snapshot.yml").read_text())
+    assert wf["jobs"]["snapshot"]["steps"] and (wf.get(True) or wf.get("on"))["schedule"]

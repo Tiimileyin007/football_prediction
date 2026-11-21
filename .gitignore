@@ -1,0 +1,6 @@
+football.db
+snapshot_log.txt
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/

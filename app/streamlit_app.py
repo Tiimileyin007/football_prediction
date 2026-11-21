@@ -125,6 +125,10 @@ with tab_data:
             st.success(str(collector.snapshot(con, s.fetch())))
         except Exception as e:
             st.error(f"Snapshot failed: {e}")
+    log_path = st.text_input("Always-on snapshot log", str(ROOT / "data" / "live" / "quotes_log.csv"))
+    if st.button("Import cloud snapshots"):
+        from footmodel.value import cloud
+        st.success(str(cloud.import_log(con, log_path)))
     if r_.button("Make forecasts"):
         try:
             n = forecast.run_forecasts(con, pd.read_csv(matches_csv), w)
