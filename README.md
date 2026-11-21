@@ -1,3 +1,6 @@
+# football_prediction
+a football prediction model, work in progress
+
 # footmodel
 
 Football match prediction model. Phase 0 (data foundation) is done: one loader
