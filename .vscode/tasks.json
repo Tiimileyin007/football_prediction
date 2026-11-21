@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run ensembles + dashboard",
+      "type": "shell",
+      "command": "python -m footmodel.evaluation.run_ensemble --forecasts data/results/poisson_forecasts.csv --out data/results",
+      "options": { "env": { "FOOTMODEL_SHOW": "1" } },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Redraw dashboard only",
+      "type": "shell",
+      "command": "python -m footmodel.evaluation.dashboard --out data/results --show",
+      "problemMatcher": []
+    }
+  ]
+}

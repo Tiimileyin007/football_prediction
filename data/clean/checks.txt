@@ -1,0 +1,10 @@
+[PASS] no duplicate matches: 0 repeated ids, 0 repeated date+teams
+[PASS] every match has a date, teams, goals and result
+[PASS] result agrees with the goals scored: 0 mismatches
+[PASS] every season has 380 matches
+[PASS] each team plays equal home and away games per season
+[PASS] dates fall inside their season: 0 outside
+[PASS] 1X2 odds are valid prices (above 1.0): 0 bad rows
+[PASS] single-book and average 1X2 overround is plausible (-1% to 25%): 0 implausible rows
+[WARN] best-price (max) odds never imply an arbitrage: 3592 rows do; treat max odds with caution
+[WARN] no gaps in the run of seasons: missing: 2019/20
