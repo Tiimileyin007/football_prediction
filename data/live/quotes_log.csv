@@ -44,3 +44,48 @@ taken_at,kickoff,home,away,book,market,selection,odds
 2026-11-21T20:37:17,2026-11-23T20:00:00,Brentford,Everton,market_max,1x2,A,3.45
 2026-11-21T20:37:17,2026-11-23T20:00:00,Brentford,Everton,market_max,ou25,O,1.73
 2026-11-21T20:37:17,2026-11-23T20:00:00,Brentford,Everton,market_max,ou25,U,2.1
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,bet365,1x2,H,6.5
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,bet365,1x2,D,4.33
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,bet365,1x2,A,1.5
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,bet365,ou25,O,1.67
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,bet365,ou25,U,2.2
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_avg,1x2,H,6.22
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_avg,1x2,D,4.41
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_avg,1x2,A,1.48
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_avg,ou25,O,1.64
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_avg,ou25,U,2.19
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_max,1x2,H,7.0
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_max,1x2,D,4.6
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_max,1x2,A,1.51
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_max,ou25,O,1.67
+2026-11-22T07:36:17,2026-11-22T14:00:00,Hull,Brighton,market_max,ou25,U,2.2
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,bet365,1x2,H,1.7
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,bet365,1x2,D,4.2
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,bet365,1x2,A,4.33
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,bet365,ou25,O,1.5
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,bet365,ou25,U,2.63
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_avg,1x2,H,1.74
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_avg,1x2,D,4.14
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_avg,1x2,A,4.08
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_avg,ou25,O,1.46
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_avg,ou25,U,2.6
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_max,1x2,H,1.78
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_max,1x2,D,4.25
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_max,1x2,A,4.5
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_max,ou25,O,1.5
+2026-11-22T07:36:17,2026-11-22T16:30:00,Liverpool,Man United,market_max,ou25,U,2.7
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,bet365,1x2,H,2.15
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,bet365,1x2,D,3.5
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,bet365,1x2,A,3.3
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,bet365,ou25,O,1.73
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,bet365,ou25,U,2.1
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_avg,1x2,H,2.12
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_avg,1x2,D,3.51
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_avg,1x2,A,3.26
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_avg,ou25,O,1.71
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_avg,ou25,U,2.05
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_max,1x2,H,2.2
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_max,1x2,D,3.65
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_max,1x2,A,3.45
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_max,ou25,O,1.73
+2026-11-22T07:36:17,2026-11-23T20:00:00,Brentford,Everton,market_max,ou25,U,2.1
